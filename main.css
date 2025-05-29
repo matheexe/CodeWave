@@ -218,15 +218,6 @@ html, body {
     width: 100%;
 }
 
-#home{
-    height: 50vh;
-    padding-bottom: 10vh;
-}
-
-#about{
-    height: 50vh;
-}
-
 #about h2{
     text-align: center;
     font-size: 2rem;
@@ -264,6 +255,33 @@ html, body {
     color: #eae8e4;
 }
 
+#about{
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+/*----------------------------------------------*/
+/*Botão de scroll pra baixo*/
+
+.scroll-down-btn{
+    display: flex;
+    color: #eae8e4;
+    width: 200px;
+    height: 200px;
+    border: solid 1px #eae8e4;
+    border-radius: 50%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+.scroll-down-btn:hover{
+    background-color: #ff8000;
+    transform: scale(1.05);
+}
+
 /*----------------------------------------------*/
 
 @media screen and (max-width:480px){ /* Celular*/
@@ -279,6 +297,10 @@ html, body {
         left: 50%;
         transform: translateX(-50%);
         width: 50%;
+    }
+
+    .scroll-down-btn{
+        display: none;
     }
     
 }
