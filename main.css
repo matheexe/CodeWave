@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ----------------------------------------------*/
+/*Configurações gerais*/
+*{ 
+    font-family: "Cal Sans", sans-serif;
+}
+
+html, body {
+    cursor: none;
+    scroll-behavior: smooth;
+    background-color: #080806;
+    color: #eae8e4;
+}
+
+.cursor-dot {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background-color: #eae8e4;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.cursor-outline {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border 0.3s ease;
+}
+
+/* Correção para o efeito hover */
+.cursor-dot.link-hover {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.cursor-outline.link-hover {
+    width: 60px;
+    height: 60px;
+    background-color: #eae8e4;
+    border: none;
+}
+/* Fim das configurações e ínicio de site.*/
+/* ----------------------------------------------*/
+
+/* ------------------------------------*/
+/* Loader:*/
+.load-screen{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #080806;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.load-screen > h1{
+    position: relative;
+    padding-bottom: 5vh;
+    font-size: 5rem;
+}
+
+.load-screen > h1::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2vh;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background:  linear-gradient(90deg,
+        #ff0040, #ff8000, #fff700, #00ff90, #00cfff, #2f00ff, #ff00ea, #ff0040
+    );
+    background-size: 200% 100%;
+    filter: brightness(1.5) blur(0.5) drop-shadow(0 0 8px #fff);
+    animation: rainbow-underline 3s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rainbow-underline{
+    0%{
+        background-position: 0% 50%;
+    }
+
+    100%{
+        background-position: 200%  50%;
+    }
+}
+
+.loader{
+    width: 60px;
+    height: 60px;
+    border: 5px solid #eae8e44d;
+    border-top-color: #eae8e4;
+    border-radius: 50%;
+    animation: spin 1.5s ease-in-out infinite;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);}
+
+    80%{
+        transform: rotate(360deg);}
+
+    100%{
+        transform: rotate(360deg) }
+}
+
+.content{
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.content.visible{
+    opacity: 1;
+}
+
+/* Fim do Loader.*/
+/* ----------------------------------------------*/
+
+/* -----------------------------------*/
+/* Menu e Header */
+#menu-header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #080806;
+    padding: 0.5vh;
+}
+
+.header-title{
+    text-align: center;
+}
+
+.header-title h1{
+    font-size: 2rem;
+}
+
+.header-title p{
+    color: #080806;
+    transition: all 0.5s;
+}
+
+.header-title:hover p{
+    color: #eae8e4;
+}
+
+.nav-link.active{
+    background-color: #eae8e4 !important;
+    color: #080806 !important;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nav-link{
+    color: #eae8e4 !important;
+    background-color: transparent !important;
+    margin-right: 1vw;
+    transition: all 0.3s;
+}
+
+.nav-link:hover{
+    color: #080806 !important;
+    background-color: #eae8e4 !important;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+/* Fim do menu e header */
+/*------------------------------------------------------*/
+
+/* ------------------------------------------*/
+/* Seção Home */
+.carousel-container{
+    display: flex;
+    justify-content: center;
+    max-width: 905px;
+    margin: 0 auto;
+}
+
+.carousel-item img {
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+#carousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+    width: 100%;
+}
+
+#home{
+    height: 50vh;
+    padding-bottom: 10vh;
+}
+
+#about{
+    height: 50vh;
+}
+
+#about h2{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.card{
+    margin-bottom: 5vh;
+    background-color: #eae8e4;
+    transition: all 0.3s;
+}
+
+.card:hover{
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.card-header{
+    text-align: center;
+    background-color: #eae8e4;
+    border-bottom: 1px solid #080806;
+}
+
+.card-body{
+    text-align: center;
+    border-top: solid 1px #080806;
+    background-color: #eae8e4;
+}
+
+.ri-heart-fill{
+    color: #080806;
+}
+
+.ri-heart-fill:hover{
+    color: #eae8e4;
+}
+
+/*----------------------------------------------*/
+
+@media screen and (max-width:480px){ /* Celular*/
+
+
+
+    .load-screen > h1{
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .load-screen > h1::after{
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+    }
+    
+}
